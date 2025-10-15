@@ -1,0 +1,20 @@
+{
+  "name": "Server Reservation System",
+  "short_name": "ServerReserv",
+  "description": "University server and device reservation management system",
+  "theme_color": "#4a77d4",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "prefer_related_applications": false
+}

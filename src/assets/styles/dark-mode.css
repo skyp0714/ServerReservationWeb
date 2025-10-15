@@ -1,0 +1,472 @@
+/* Dark Mode Global Styles */
+
+/* Base dark mode colors */
+body.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --bg-hover: #404040;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #888888;
+  --border-color: #444;
+  --border-hover: #555;
+  --link-color: #64b5f6;
+  --link-hover: #42a5f5;
+  --success: #66bb6a;
+  --warning: #ffa726;
+  --error: #ef5350;
+  --info: #42a5f5;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Common UI elements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: var(--link-color);
+  background-color: var(--bg-tertiary);
+}
+
+body.dark-mode input:disabled,
+body.dark-mode textarea:disabled,
+body.dark-mode select:disabled {
+  background-color: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  opacity: 0.6;
+}
+
+/* Buttons */
+body.dark-mode button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode button:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+body.dark-mode .app-btn-primary,
+body.dark-mode .save-btn {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+body.dark-mode .app-btn-primary:hover,
+body.dark-mode .save-btn:hover {
+  background-color: #45a049;
+}
+
+body.dark-mode .app-btn-secondary,
+body.dark-mode .cancel-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+body.dark-mode .app-btn-danger,
+body.dark-mode .delete-btn {
+  background-color: #ef5350;
+  color: white;
+}
+
+body.dark-mode .app-btn-danger:hover,
+body.dark-mode .delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Cards and containers */
+body.dark-mode .item-card,
+body.dark-mode .announcement-item-slim,
+body.dark-mode .device-option {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-mode .item-card:hover,
+body.dark-mode .announcement-item-slim:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+}
+
+/* Modals */
+body.dark-mode .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .modal,
+body.dark-mode .app-modal {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .app-modal-header {
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-mode .modal-footer,
+body.dark-mode .app-modal-footer,
+body.dark-mode .modal-actions {
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Tables */
+body.dark-mode table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode th {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+body.dark-mode td {
+  border-color: var(--border-color);
+}
+
+body.dark-mode tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Links */
+body.dark-mode a {
+  color: var(--link-color);
+}
+
+body.dark-mode a:hover {
+  color: var(--link-hover);
+}
+
+/* Badges and chips */
+body.dark-mode .device-chip,
+body.dark-mode .category-badge {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-mode .device-chip.selected {
+  background-color: #1976d2;
+  border-color: #1976d2;
+  color: white;
+}
+
+/* Device type colors - adjusted for dark mode */
+body.dark-mode .device-chip.device-type-blue {
+  background-color: #1565c0;
+  color: #e3f2fd;
+}
+
+body.dark-mode .device-chip.device-type-green {
+  background-color: #2e7d32;
+  color: #e8f5e9;
+}
+
+body.dark-mode .device-chip.device-type-orange {
+  background-color: #e65100;
+  color: #fff3e0;
+}
+
+body.dark-mode .device-chip.device-type-purple {
+  background-color: #6a1b9a;
+  color: #f3e5f5;
+}
+
+body.dark-mode .device-chip.device-type-red {
+  background-color: #c62828;
+  color: #ffebee;
+}
+
+/* Status indicators */
+body.dark-mode .status-indicator {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .status-text {
+  color: var(--text-primary);
+}
+
+/* Calendar specific */
+body.dark-mode .calendar-container {
+  background-color: var(--bg-primary);
+}
+
+body.dark-mode .calendar-grid {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .calendar-header-row,
+body.dark-mode .server-row {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .day-cell {
+  border-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+body.dark-mode .day-header {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+body.dark-mode .server-label {
+  color: var(--text-primary);
+}
+
+body.dark-mode .reservation {
+  opacity: 0.9;
+}
+
+/* Notice/Announcement specific */
+body.dark-mode .announcement-detail-content {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+body.dark-mode .note-content {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* Info display */
+body.dark-mode .info-display {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+body.dark-mode .detail-row {
+  color: var(--text-primary);
+}
+
+body.dark-mode .detail-row strong {
+  color: var(--text-secondary);
+}
+
+/* Search and filters */
+body.dark-mode .search-input,
+body.dark-mode .filter-input {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .search-input::placeholder,
+body.dark-mode .filter-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Scrollbars */
+body.dark-mode ::-webkit-scrollbar {
+  background-color: var(--bg-secondary);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: var(--bg-hover);
+  border-color: var(--border-color);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Home icon */
+body.dark-mode .home-icon-button {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-mode .home-icon-button:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Favorite button */
+body.dark-mode .favorite-btn {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .favorite-btn.is-favorite {
+  color: #ffcc00;
+}
+
+/* Pinned items */
+body.dark-mode .pinned {
+  background-color: var(--bg-tertiary);
+  border-color: var(--warning);
+}
+
+/* Empty states */
+body.dark-mode .empty-state {
+  color: var(--text-secondary);
+}
+
+/* Dividers */
+body.dark-mode .section-divider,
+body.dark-mode .app-section-divider {
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+/* Toggle switches */
+body.dark-mode .app-toggle-buttons-small {
+  background-color: var(--bg-tertiary);
+}
+
+body.dark-mode .app-toggle-buttons-small button {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .app-toggle-buttons-small button:hover:not(.active) {
+  background-color: var(--bg-hover);
+}
+
+body.dark-mode .app-toggle-buttons-small button.active {
+  background-color: #4a77d4;
+  color: white;
+}
+
+/* Password field */
+body.dark-mode .password-field {
+  color: var(--text-primary);
+}
+
+body.dark-mode .toggle-password {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .toggle-password:hover {
+  color: var(--text-primary);
+}
+
+/* Pagination */
+body.dark-mode .pagination {
+  color: var(--text-primary);
+}
+
+body.dark-mode .page-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .page-btn:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+}
+
+body.dark-mode .page-btn:disabled {
+  opacity: 0.4;
+}
+
+/* Form groups */
+body.dark-mode .form-group label,
+body.dark-mode .app-form-group label {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .form-textarea,
+body.dark-mode .app-form-group textarea {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Hover effects for clickable items */
+body.dark-mode .clickable-chip:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Attached devices */
+body.dark-mode .attached-devices-chips {
+  color: var(--text-primary);
+}
+
+/* Device selection */
+body.dark-mode .devices-selection {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .device-option.already-attached {
+  background-color: var(--bg-hover);
+  opacity: 0.5;
+}
+
+/* BMC and auto links */
+body.dark-mode .bmc-link,
+body.dark-mode .auto-link {
+  color: var(--link-color);
+}
+
+body.dark-mode .bmc-link:hover,
+body.dark-mode .auto-link:hover {
+  color: var(--link-hover);
+}
+
+/* Headers */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-primary);
+}
+
+/* Required field indicator */
+body.dark-mode .app-required-field {
+  color: var(--error);
+}
+
+/* Unusable server state */
+body.dark-mode .unusable-server {
+  opacity: 0.6;
+  background-color: var(--bg-tertiary);
+}
+
+/* Filter notice */
+body.dark-mode .filter-notice {
+  background-color: #4a3800;
+  border-color: #ffa726;
+  color: #ffe0b2;
+}
+
+/* CPU type colors - adjusted for dark mode */
+body.dark-mode .cpu-type-green {
+  background-color: #2e7d32;
+  color: #e8f5e9;
+}
+
+body.dark-mode .cpu-type-blue {
+  background-color: #1565c0;
+  color: #e3f2fd;
+}
+
+body.dark-mode .cpu-type-purple {
+  background-color: #6a1b9a;
+  color: #f3e5f5;
+}
+
+body.dark-mode .cpu-type-orange {
+  background-color: #e65100;
+  color: #fff3e0;
+}

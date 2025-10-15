@@ -1,0 +1,691 @@
+/* ServerList.vue Component Styles */
+@import '../dark-mode.css';
+
+.server-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.server-list h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Password field styling (specific to servers) */
+.password-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+/* Attached devices chips (specific to servers) */
+.attached-devices-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.device-chip {
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* No results message with multiple actions */
+.no-results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* Add password input container style */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  flex: 1;
+  padding-right: 35px; /* Space for the button */
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.toggle-password-btn:hover {
+  color: #333;
+}
+
+/* Form field with disabled input styling */
+.form-group input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  color: #666;
+  border-color: #ddd;
+}
+
+/* Enhanced Modal Styles - Ensure these are properly scoped */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500; /* Ensure high enough z-index */
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.server-form-modal, .specs-modal {
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Ensure modal animation works properly */
+.modal-overlay {
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.form-content {
+  padding: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-actions {
+  padding: 15px 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.save-btn, .close-btn, .cancel-btn, .delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.save-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.close-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Prevent modal click propagation */
+.modal {
+  cursor: default;
+}
+
+/* Attached devices chips styling */
+.attached-devices-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.device-chip {
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.device-chip.clickable-chip {
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.device-chip.clickable-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Device type colors */
+.device-chip.device-type-blue {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.device-chip.device-type-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.device-chip.device-type-orange {
+  background-color: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffe0b2;
+}
+
+.device-chip.device-type-purple {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #e1bee7;
+}
+
+.device-chip.device-type-red {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.device-chip.device-type-default {
+  background-color: #f0f0f0;
+  color: #555;
+  border: 1px solid #e0e0e0;
+}
+
+/* Enhanced styling for servers that are not in use */
+.item-card.unusable-server {
+  opacity: 0.75;
+  background-color: #f8f8f8;
+  border-color: #ddd;
+}
+
+.unusable-server h3,
+.unusable-server p,
+.unusable-server .detail-row {
+  color: #777;
+}
+
+.unusable-server .status-text {
+  font-style: italic;
+}
+
+/* Style for note content with better readability */
+.note-content {
+  white-space: pre-wrap;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 4px;
+}
+
+/* Add textarea styles */
+.form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form-textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Updated style for note content with truncation */
+.note-content {
+  white-space: pre-wrap;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.note-content.truncated {
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note-content.expanded {
+  max-height: none;
+}
+
+.note-expand-indicator {
+  color: #4a77d4;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* Add styles for ownership toggle */
+.ownership-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.app-toggle-buttons-small {
+  display: flex;
+  gap: 5px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.app-toggle-buttons-small button {
+  background: none;
+  border: none;
+  border-radius: 17px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #555;
+}
+
+.app-toggle-buttons-small button:hover:not(.active) {
+  background-color: #e0e0e0;
+}
+
+.app-toggle-buttons-small button.active {
+  background-color: #4a77d4;
+  color: white;
+  font-weight: 500;
+}
+
+/* Add styles for favorite button and container */
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  padding: 3px;
+  cursor: pointer;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}
+
+.favorite-btn.is-favorite {
+  color: #ffcc00;
+  filter: drop-shadow(0 0 2px rgba(255, 204, 0, 0.5));
+}
+
+/* Update status-indicator for the new layout */
+.status-indicator {
+  display: flex;
+  align-items: center;
+}
+
+/* BMC IP link styling */
+.bmc-links-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 5px;
+}
+
+.bmc-link {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bmc-link:hover {
+  color: #2d5a8f;
+  text-decoration: underline;
+}
+
+.bmc-link:not(:last-child)::after {
+  content: ',';
+  color: #333;
+  margin-left: 2px;
+}
+
+/* Auto-detected links in note content */
+.note-content a.auto-link {
+  color: #4a90e2;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.note-content a.auto-link:hover {
+  color: #2d5a8f;
+}
+
+/* Prevent link click from triggering note expansion */
+.note-content a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Device selection container styles */
+.device-selection-container {
+  margin-top: 15px;
+}
+
+.device-filter {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.device-type-filter {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.device-type-filter:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.filter-notice {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #856404;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.show-all-btn {
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.show-all-btn:hover {
+  background-color: #ffca2c;
+}
+
+.devices-selection {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+.no-devices-message {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+.device-option {
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.device-option:hover {
+  border-color: #bbb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.device-option.selected {
+  background-color: #e3f2fd;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 1px #4a90e2;
+}
+
+.device-option.already-attached {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.device-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.device-name {
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.device-label-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.device-type-badge {
+  background-color: #e0e0e0;
+  color: #555;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.device-option.selected .device-type-badge {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.attached-elsewhere-note {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* Dark Mode Styles for ServerList */
+body.dark-mode .server-list h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .filter-container {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .filter-input {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .filter-input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .ownership-toggle-container {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .filter {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .server-form-modal h3,
+body.dark-mode .specs-modal h3 {
+  color: #e0e0e0;
+  background-color: #3a3a3a;
+}
+
+body.dark-mode .form-content {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .form-group label {
+  color: #b0b0b0;
+}
+
+body.dark-mode .device-selection-container {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .devices-selection {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+
+body.dark-mode .device-option {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .device-option:hover {
+  background-color: #3a3a3a;
+  border-color: #555;
+}
+
+body.dark-mode .device-option.selected {
+  background-color: #1565c0;
+  border-color: #1976d2;
+}
+
+body.dark-mode .device-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode .device-type-badge {
+  background-color: #3a3a3a;
+  color: #b0b0b0;
+}
+
+body.dark-mode .device-option.selected .device-type-badge {
+  background-color: #1976d2;
+  color: white;
+}
+
+body.dark-mode .attached-elsewhere-note {
+  color: #888;
+}
+
+body.dark-mode .filter-notice {
+  background-color: #4a3800;
+  border-color: #ffa726;
+  color: #ffe0b2;
+}
+
+body.dark-mode .show-all-btn {
+  background-color: #ffa726;
+  color: #1a1a1a;
+}
+
+body.dark-mode .show-all-btn:hover {
+  background-color: #ffb74d;
+}
+
+body.dark-mode .no-devices-message {
+  color: #888;
+}

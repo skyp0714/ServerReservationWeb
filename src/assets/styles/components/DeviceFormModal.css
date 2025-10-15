@@ -1,0 +1,11 @@
+/* DeviceFormModal Styles */
+@import '../dark-mode.css';
+
+/* Owner input field styles when disabled */
+.owner-input-disabled {
+  background-color: #f5f5f5 !important;
+  color: #777 !important;
+  cursor: not-allowed !important;
+  border-color: #ddd !important;
+  opacity: 0.8;
+}

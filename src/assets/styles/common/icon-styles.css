@@ -1,0 +1,48 @@
+/* Shared Icon Styles */
+/* These icon styles are used across multiple components */
+
+.server-icon {
+  background-color: rgba(74, 119, 212, 0.1);
+  color: #4a77d4;
+}
+
+.device-icon {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.calendar-icon {
+  background-color: rgba(253, 126, 20, 0.1);
+  color: #fd7e14;
+}
+
+.notice-icon {
+  background-color: rgba(111, 66, 193, 0.1);
+  color: #6f42c1;
+}
+
+.admin-icon {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+/* Urgency color classes for reservations */
+.urgency-corun {
+  background-color: #4a77d4;
+}
+
+.urgency-exclusive-light {
+  background-color: #ff9393;
+}
+
+.urgency-exclusive-medium {
+  background-color: #ff6464;
+}
+
+.urgency-exclusive-dark {
+  background-color: #ff3232;
+}
+
+.urgency-default {
+  background-color: #6c757d;
+}

@@ -1,0 +1,466 @@
+/**
+ * Common UI elements used across multiple pages
+ * Includes styles for home button, floating add button, and filter inputs
+ */
+@import '../dark-mode.css';
+
+/* Home icon button - fixed position in top-right corner */
+.home-icon-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #333;
+  text-decoration: none;
+  z-index: 1000;
+  transition: all 0.2s ease;
+}
+
+.home-icon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa;
+}
+
+/* Floating add button - fixed position in bottom-right corner */
+.floating-add-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #4a77d4;
+  color: white;
+  font-size: 36px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.floating-add-button:hover {
+  transform: scale(1.1);
+  background-color: #3a67c4;
+}
+
+/* Filter container and input styling */
+.filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  position: relative;
+}
+
+.filter label {
+  font-weight: 500;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.filter-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  min-width: 0; /* Allow flexbox to shrink the input if needed */
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #4a77d4;
+  box-shadow: 0 0 0 2px rgba(74, 119, 212, 0.1);
+}
+
+.clear-filter-btn {
+  position: absolute;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.clear-filter-btn:hover {
+  color: #333;
+}
+
+.filter-stats {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+  padding-right: 5px;
+}
+
+/* No results message and clear filter button */
+.no-results {
+  text-align: center;
+  padding: 40px 0;
+  color: #666;
+}
+
+.clear-filter-button {
+  background-color: #4a77d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-filter-button:hover {
+  background-color: #3a67c4;
+}
+
+/* UNIFIED CARD STYLES - Common for both server and device cards */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.item-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background-color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
+  min-height: 70px; /* Added to increase card height */
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Card with left border color */
+.item-card-with-border {
+  border-left: 6px solid #999; /* Default border color */
+}
+
+/* Card header styles */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.name-and-owner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.name-and-owner h3 {
+  margin: 0;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.owner-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 8px;
+  color: #555;
+}
+
+.owner-icon {
+  margin-right: 4px;
+}
+
+.owner-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.status-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.status-green {
+  background-color: #4caf50;
+}
+
+.status-red {
+  background-color: #f44336;
+}
+
+.status-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.expand-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.expand-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Card content styles */
+.item-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.expanded-content {
+  margin-top: 15px;
+}
+
+.detail-row {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.reduced-info {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 10px 0;
+}
+
+/* Button row styles */
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.edit-btn {
+  background-color: #4a77d4;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #3a67c4;
+}
+
+.edit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.reserve-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.reserve-btn:hover {
+  background-color: #218838;
+}
+
+.reserve-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.spec-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.spec-btn:hover {
+  background-color: #5a6268;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Type/device chip styles */
+.type-chip {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background-color: #607d8b; /* Default color */
+}
+
+/* Type color classes */
+.type-blue, .cpu-blue { border-left-color: #2196f3; }
+.type-green, .cpu-green { border-left-color: #4caf50; }
+.type-orange, .cpu-orange { border-left-color: #ff9800; }
+.type-red, .cpu-red { border-left-color: #f44336; }
+.type-purple, .cpu-purple { border-left-color: #9c27b0; }
+.type-default, .cpu-default { border-left-color: #607d8b; }
+
+.type-chip.type-blue { background-color: #2196f3; }
+.type-chip.type-green { background-color: #4caf50; }
+.type-chip.type-orange { background-color: #ff9800; }
+.type-chip.type-red { background-color: #f44336; }
+.type-chip.type-purple { background-color: #9c27b0; }
+.type-chip.type-default { background-color: #607d8b; }
+
+/* Status background classes for items */
+.bg-active {
+  background-color: white;
+}
+
+.bg-inactive {
+  background-color: #f8f9fa;
+}
+
+.unusable-server {
+  opacity: 0.75;
+}
+
+.muted {
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 600px) {
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-row {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
+}
+
+/* App toggle buttons - shared component for toggling views */
+.app-toggle-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.app-toggle-buttons button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.app-toggle-buttons button:hover {
+  background-color: #ddd;
+}
+
+.app-toggle-buttons button.active {
+  background-color: #4a77d4;
+  color: #fff;
+}
+
+/* Small toggle buttons for secondary toggles */
+.app-toggle-buttons-small {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.app-toggle-buttons-small button {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.app-toggle-buttons-small button.active {
+  background-color: #4a77d4;
+  color: white;
+}

@@ -1,0 +1,1159 @@
+/* Reservation Calendar Styles */
+@import '../dark-mode.css';
+
+/* Additional styles for the filter container */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.filter-section .filter {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-hint {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.clear-all-filters {
+  background: none;
+  border: none;
+  color: #4a77d4;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 14px;
+}
+
+.clear-all-filters:hover {
+  color: #2c4d8e;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Server details modal specific styles */
+.server-label {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.server-label:hover {
+  color: #4a77d4;
+  text-decoration: underline;
+}
+
+.section-divider {
+  margin: 20px 0 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a77d4;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.attached-devices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attached-device {
+  background-color: #f5f7fa;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.device-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.device-type {
+  background-color: #e9edf3;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.info-display {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  min-height: 20px;
+  color: #333;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-green {
+  background-color: #4caf50;
+}
+
+.status-red {
+  background-color: #f44336;
+}
+
+/* Add style for non-editable events */
+.fc-event[data-not-editable="true"] {
+  opacity: 0.85;
+  cursor: default !important;
+}
+
+/* Add styles for favorite filter button */
+.favorite-filter-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-right: 2px;
+  cursor: pointer;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+
+.favorite-filter-btn:hover {
+  transform: scale(1.2);
+}
+
+.favorite-filter-btn.active {
+  color: #ffcc00;
+  filter: drop-shadow(0 0 2px rgba(255, 204, 0, 0.5));
+}
+
+.reservation-calendar-container {
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Toggle buttons styles removed from here and moved to common-ui.css */
+/* Now using app-toggle-buttons class instead */
+
+/* FullCalendar view => double hour height => override .fc-timegrid-slot */
+.fullcalendar-view {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.fullcalendar-view ::v-deep .fc-timegrid-slot {
+  height: 50px !important; /* ~2x default if default is ~25px */
+} 
+
+/* Calendar header styling */
+.fullcalendar-view ::v-deep .fc-header-toolbar {
+  margin-bottom: 15px !important;
+  padding: 0 5px;
+}
+
+/* Calendar title */
+.fullcalendar-view ::v-deep .fc-toolbar-title {
+  font-size: 1.3em !important;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Calendar buttons */
+.fullcalendar-view ::v-deep .fc-button {
+  background-color: #f0f0f0 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  padding: 8px 12px !important;
+  height: auto !important;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fullcalendar-view ::v-deep .fc-button:hover {
+  background-color: #e0e0e0 !important;
+}
+
+.fullcalendar-view ::v-deep .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #4a77d4 !important;
+  color: #fff !important;
+  border-color: #4a77d4 !important;
+}
+
+.fullcalendar-view ::v-deep .fc-button-group {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fullcalendar-view ::v-deep .fc-button-group .fc-button:first-child {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.fullcalendar-view ::v-deep .fc-button-group .fc-button:last-child {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Calendar today button */
+.fullcalendar-view ::v-deep .fc-today-button {
+  background-color: #f0f7ff !important;
+  border-color: #c2dcff !important;
+}
+
+.fullcalendar-view ::v-deep .fc-today-button:hover {
+  background-color: #e1f0ff !important;
+}
+
+/* Calendar day/time grid styling */
+.fullcalendar-view ::v-deep .fc-theme-standard .fc-scrollgrid {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Headers for days of the week */
+.fullcalendar-view ::v-deep .fc-col-header-cell {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+}
+
+.fullcalendar-view ::v-deep .fc-col-header-cell-cushion {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 8px;
+}
+
+/* Today highlight */
+.fullcalendar-view ::v-deep .fc-day-today {
+  background-color: #f0f7ff !important;
+}
+
+/* Time slots */
+.fullcalendar-view ::v-deep .fc-timegrid-slot {
+  height: 50px !important;
+  border-color: #f0f0f0 !important;
+  cursor: pointer;
+}
+
+.fullcalendar-view ::v-deep .fc-timegrid-slot:hover {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* Time labels */
+.fullcalendar-view ::v-deep .fc-timegrid-axis {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.fullcalendar-view ::v-deep .fc-timegrid-slot-label-cushion {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Event styling */
+.fullcalendar-view ::v-deep .fc-event {
+  border: none !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s, box-shadow 0.15s;
+  overflow: hidden;
+}
+
+.fullcalendar-view ::v-deep .fc-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  z-index: 5 !important;
+}
+
+/* Event content */
+.fullcalendar-view ::v-deep .fc-event-main {
+  padding: 4px 6px !important;
+  line-height: 1.3;
+}
+
+.fullcalendar-view ::v-deep .fc-event-time {
+  font-size: 0.8em;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.fullcalendar-view ::v-deep .fc-event-title {
+  font-size: 0.85em;
+  font-weight: 500;
+  white-space: pre-line !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Now indicator (red line) */
+.fullcalendar-view ::v-deep .fc-timegrid-now-indicator-line {
+  border-color: rgba(220, 53, 69, 0.8) !important;
+  border-width: 2px !important;
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.4);
+  z-index: 5;
+}
+
+.fullcalendar-view ::v-deep .fc-timegrid-now-indicator-arrow {
+  border-color: rgba(220, 53, 69, 0.8) !important;
+  border-width: 5px !important;
+}
+
+/* Highlight for selections */
+.fullcalendar-view ::v-deep .fc-highlight {
+  background-color: rgba(74, 119, 212, 0.15) !important;
+  border: 2px dashed rgba(74, 119, 212, 0.3) !important;
+}
+
+/* Add more readable time slot labels in week view */
+.fullcalendar-view ::v-deep .fc-timegrid-axis-cushion {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .fullcalendar-view ::v-deep .fc-toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .fullcalendar-view ::v-deep .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fullcalendar-view ::v-deep .fc-view-harness {
+    height: 600px !important; /* Adjust height for mobile */
+  }
+}
+
+/* Improved Server view with white background instead of gray */
+.server-view {
+  margin-top: 20px;
+  background-color: white; /* Changed from #f8f9fa (light gray) to white */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced week navigation */
+.week-nav {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.week-nav button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+  transition: background-color 0.2s;
+  margin: 0 15px;
+}
+
+.week-nav button:hover {
+  background-color: #e0e0e0;
+}
+
+.week-range {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Improved day sections with card-like design */
+.days-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.day-section {
+  border-top: 0;
+  padding-top: 10px;
+  margin-bottom: 25px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.day-section:last-child {
+  margin-bottom: 5px;
+}
+
+.day-section.today {
+  background-color: #f0f7ff;
+  box-shadow: 0 0 0 1px rgba(74, 119, 212, 0.2);
+}
+
+/* Improved day header - standardized width and padding */
+.day-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+  height: 35px;
+  background-color: #f8f9fa;
+  border-radius: 6px 6px 0 0;
+  padding: 0;
+}
+
+/* Standardized day title width to match server labels */
+.day-title {
+  width: 120px;
+  font-weight: bold;
+  padding: 8px 10px;
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Improved time axis for perfect alignment with timeline */
+.day-time-axis {
+  display: flex;
+  flex: 1;
+  background-color: white;
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+  height: 25px;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-left: 0;
+}
+
+.axis-time {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  border-left: 1px solid #eee;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  box-sizing: border-box;
+}
+
+/* Improved content wrapper for perfect alignment */
+.content-wrapper {
+  display: flex;
+  background-color: white;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Standardized server labels width to match day title */
+.server-labels {
+  width: 120px;
+  padding: 5px 10px;
+  text-align: right;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  border-right: none;
+}
+
+/* Enhanced timeline for perfect grid alignment */
+.timeline-container {
+  flex-grow: 1;
+  position: relative;
+  border-left: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: calc(100% / 24) 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Improved server labels */
+.server-label {
+  height: 35px;
+  line-height: 35px;
+  font-weight: 500;
+  color: #333;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
+}
+
+/* Enhanced timeline */
+.timeline-container {
+  flex-grow: 1;
+  position: relative;
+  border-left: 1px solid #eee;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: calc(100% / 24) 100%;
+  cursor: pointer;
+}
+
+.reservation-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.reservation-row:hover {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* Enhanced reservation container */
+.reservation-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.2s;
+}
+
+.reservation-container:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Improved reservation styling */
+.reservation {
+  position: absolute;
+  top: 5px;
+  height: 25px;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 4px;
+  cursor: move;
+  padding: 0px 8px;
+  box-sizing: border-box;
+  font-size: 0.85em;
+  line-height: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reservation:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced styles for my reservations */
+.reservation.my-reservation {
+  box-shadow: 0 0 0 2px white, 0 1px 5px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  z-index: 10;
+  font-weight: bold;
+}
+
+.reservation.my-reservation:hover {
+  transform: scale(1.03) translateY(-1px);
+  box-shadow: 0 0 0 2px white, 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Improved current time indicator */
+.current-time-line-timeline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(220, 53, 69, 0.8), rgba(220, 53, 69, 0.6));
+  z-index: 5;
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.4);
+}
+
+/* Enhanced drag preview */
+.drag-preview {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0,123,255,0.3);
+}
+
+.custom-drag-preview {
+  position: fixed;
+  background-color: rgba(74, 119, 212, 0.7);
+  border: 2px dashed rgba(74, 119, 212, 0.8);
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced urgency color classes with better visibility */
+.urgency-corun {
+  background-color: rgba(64, 128, 255, 0.9);
+  border: 1px solid rgba(40, 100, 220, 0.9);
+}
+
+.urgency-exclusive-light {
+  background-color: rgba(255, 147, 147, 0.9);
+  border: 1px solid rgba(220, 120, 120, 0.9);
+}
+
+.urgency-exclusive-medium {
+  background-color: rgba(255, 100, 100, 0.9);
+  border: 1px solid rgba(220, 80, 80, 0.9);
+}
+
+.urgency-exclusive-dark {
+  background-color: rgba(255, 50, 50, 0.9);
+  border: 1px solid rgba(220, 40, 40, 0.9);
+}
+
+.urgency-default {
+  background-color: rgba(100, 100, 100, 0.9);
+  border: 1px solid rgba(80, 80, 80, 0.9);
+}
+
+/* FullCalendar highlight style for my reservations */
+.fc-event.my-reservation {
+  box-shadow: 0 0 0 2px white, 0 0 5px rgba(0,0,0,0.5) !important;
+  transform: scale(1.02);
+  z-index: 10 !important;
+  font-weight: bold;
+}
+
+/* FullCalendar marker for my reservations (small dot in top-right corner) */
+.fc-event.my-reservation::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+/* Add: Make FullCalendar my reservation background slightly brighter */
+.fc-event.my-reservation .fc-event-main {
+  background-color: inherit;
+  position: relative;
+}
+
+.fc-event.my-reservation .fc-event-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* Add: Maintain highlight effect when my reservations overlap with others */
+.fc-timegrid-event.my-reservation,
+.fc-daygrid-event.my-reservation {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.drag-preview {
+  position: absolute;
+  top: 0;
+  height: 100%; 
+  background-color: rgba(0,123,255,0.3);
+}
+.current-time-line-timeline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: red; 
+  z-index: 5;
+}
+
+/* Other Home button and common UI styles */
+.home-icon-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  color: #333;
+  text-decoration: none;
+  z-index: 1000;
+  transition: all 0.2s ease;
+}
+
+.home-icon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color: #f8f9fa;
+}
+
+.floating-add-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+input[list], datalist {
+  position: relative;
+  z-index: 9999;
+}
+
+.date-time-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-time-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.date-time-group:last-child {
+  margin-right: 0;
+}
+
+/* Drag and drop styles */
+.drag-grid-preview {
+  position: fixed;
+  background-color: rgba(255, 165, 0, 0.5);
+  border: 2px dashed #ff8c00;
+  z-index: 1000;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.05s, left 0.05s, top 0.05s;
+}
+
+.reservation.dragging {
+  opacity: 0.5;
+}
+
+.custom-drag-preview {
+  position: fixed;
+  background-color: rgba(255, 165, 0, 0.7);
+  border: 2px dashed #ff8c00;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* BMC IP link styling for server details modal */
+.server-details-modal .bmc-links-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.server-details-modal .bmc-link {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.server-details-modal .bmc-link:hover {
+  color: #2d5a8f;
+  text-decoration: underline;
+}
+
+.server-details-modal .bmc-link:not(:last-child)::after {
+  content: ',';
+  color: #333;
+  margin-left: 2px;
+}
+
+/* Password field styling for server details modal */
+.server-details-modal .password-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.server-details-modal .toggle-password {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.server-details-modal .toggle-password:hover {
+  color: #333;
+}
+
+/* Dark Mode Styles for ReservationCalendar */
+body.dark-mode .calendar-header {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body.dark-mode .calendar-header h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .filter-section {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .filter select,
+body.dark-mode .filter input {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .filter select::placeholder,
+body.dark-mode .filter input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .clear-all-filters {
+  color: #64b5f6;
+}
+
+body.dark-mode .clear-all-filters:hover {
+  color: #42a5f5;
+}
+
+body.dark-mode .calendar-grid {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+
+body.dark-mode .calendar-header-row {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .day-header {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .server-row {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .server-row:hover {
+  background-color: #3a3a3a;
+}
+
+body.dark-mode .server-label {
+  color: #e0e0e0;
+}
+
+body.dark-mode .server-label:hover {
+  color: #64b5f6;
+}
+
+body.dark-mode .day-cell {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .time-marker {
+  background-color: rgba(100, 181, 246, 0.1);
+}
+
+body.dark-mode .attached-devices-list {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .attached-device {
+  background-color: #3a3a3a;
+  border-color: #444;
+}
+
+body.dark-mode .attached-device:hover {
+  background-color: #404040;
+}
+
+body.dark-mode .device-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode .device-type {
+  color: #b0b0b0;
+}
+
+body.dark-mode .week-nav-btn {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .week-nav-btn:hover:not(:disabled) {
+  background-color: #404040;
+}
+
+body.dark-mode .week-display {
+  color: #e0e0e0;
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .today-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+body.dark-mode .today-btn:hover {
+  background-color: #1565c0;
+}
+
+body.dark-mode .server-details-modal .info-display {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .server-details-modal .section-divider {
+  color: #b0b0b0;
+  border-bottom-color: #444;
+}
+
+body.dark-mode .server-details-modal .toggle-password {
+  color: #b0b0b0;
+}
+
+body.dark-mode .server-details-modal .toggle-password:hover {
+  color: #e0e0e0;
+}
+
+body.dark-mode .favorite-server-btn {
+  color: #888;
+}
+
+body.dark-mode .favorite-server-btn.is-favorite {
+  color: #ffcc00;
+}
+
+body.dark-mode .reservation-calendar-container {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .calendar-wrapper {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .calendar-body {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .time-axis {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .hour-label {
+  color: #b0b0b0;
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .day-time-axis {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .filter {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .filter label {
+  color: #b0b0b0;
+}
+
+body.dark-mode .urgency-high {
+  background-color: #c62828;
+}
+
+body.dark-mode .urgency-normal {
+  background-color: #1976d2;
+}
+
+body.dark-mode .urgency-low {
+  background-color: #388e3c;
+}
+
+body.dark-mode .calendar-controls {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .server-view {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .reservation {
+  border-color: #444;
+}
+
+body.dark-mode .reservation-title {
+  color: #e0e0e0;
+}
+
+body.dark-mode .reservation-user {
+  color: #b0b0b0;
+}
+
+body.dark-mode .reservation-time {
+  color: #888;
+}
+
+body.dark-mode .app-form-group label {
+  color: #b0b0b0;
+}
+
+body.dark-mode .app-required-field {
+  color: #ef5350;
+}
+
+body.dark-mode .day-container {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .day-section {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .day-section.today {
+  background-color: #1e3a5f;
+  box-shadow: 0 0 0 1px rgba(100, 181, 246, 0.3);
+}
+
+body.dark-mode .day-title {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .day-time-axis {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .axis-time {
+  color: #b0b0b0;
+  border-left-color: #444;
+}
+
+body.dark-mode .content-wrapper {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .server-labels {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .timeline-container {
+  background-color: #2d2d2d;
+  border-left-color: #444;
+}
+
+body.dark-mode .timeline {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: calc(100% / 24) 100%;
+}
+
+body.dark-mode .day-header {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode .days-container {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .week-nav {
+  background-color: transparent;
+}
+
+body.dark-mode .week-nav button {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .week-nav button:hover {
+  background-color: #404040;
+}
+
+body.dark-mode .week-range {
+  color: #e0e0e0;
+}

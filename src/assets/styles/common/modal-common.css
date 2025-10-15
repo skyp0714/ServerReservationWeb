@@ -1,0 +1,312 @@
+/**
+ * Common modal styling for consistent UI across all modals
+ * Used by DeviceFormModal, ServerFormModal, and ReservationCalendar modals
+ */
+@import '../dark-mode.css';
+
+/* Modal variables for easy customization */
+:root {
+  /* Modal colors */
+  --modal-bg-color: white;
+  --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+  --modal-header-bg: #f9f9f9;
+  --modal-footer-bg: #f9f9f9;
+  --modal-border-color: #eee;
+
+  /* Button colors */
+  --primary-btn-color: #4a77d4;
+  --primary-btn-hover: #3a67c4;
+  --cancel-btn-color: #f0f0f0;
+  --cancel-btn-hover: #e0e0e0;
+  --danger-btn-color: #dc3545;
+  --danger-btn-hover: #c82333;
+  
+  /* Form control styles */
+  --input-border-color: #ddd;
+  --input-border-radius: 4px;
+  --input-padding: 10px 12px;
+  --input-focus-color: #4a77d4;
+  
+  /* Spacing */
+  --modal-padding: 24px;
+  --form-group-spacing: 20px;
+  --grid-gap: 24px;
+  
+  /* Typography */
+  --modal-font-size: 14px;
+  --modal-heading-size: 18px;
+  --field-label-weight: 500;
+}
+
+/* Base reset styles for consistency */
+.app-modal-overlay *,
+.app-modal-overlay *::before,
+.app-modal-overlay *::after {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Modal overlay styles */
+.app-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+/* Modal container styles */
+.app-modal {
+  background-color: var(--modal-bg-color);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px; /* Default width, can be overridden in component */
+  max-height: 90vh;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal widths */
+.app-modal.modal-narrow {
+  max-width: 500px;
+}
+
+.app-modal.modal-wide {
+  max-width: 800px;
+}
+
+/* Modal header */
+.app-modal-header {
+  padding: 16px var(--modal-padding);
+  background-color: var(--modal-header-bg);
+  border-bottom: 1px solid var(--modal-border-color);
+}
+
+.app-modal-header h3 {
+  margin: 0;
+  font-size: var(--modal-heading-size);
+  color: #333;
+  font-weight: 600;
+}
+
+/* Modal content */
+.app-modal-content {
+  padding: 20px var(--modal-padding);
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(90vh - 130px);
+}
+
+/* Form layouts */
+.app-form-single-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+}
+
+/* Make the form responsive */
+@media (max-width: 768px) {
+  .app-form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.app-form-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form group */
+.app-form-group {
+  margin-bottom: var(--form-group-spacing);
+  position: relative;
+  width: 100%;
+}
+
+.app-form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Form labels */
+.app-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: var(--field-label-weight);
+  font-size: var(--modal-font-size);
+  color: #444;
+}
+
+/* Form inputs */
+.app-form-group input,
+.app-form-group select,
+.app-form-group textarea {
+  width: 100%;
+  padding: var(--input-padding);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--modal-font-size);
+  background-color: #fff;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Input focus states */
+.app-form-group input:focus,
+.app-form-group select:focus,
+.app-form-group textarea:focus {
+  outline: none;
+  border-color: var(--input-focus-color);
+  box-shadow: 0 0 0 2px rgba(74, 119, 212, 0.1);
+}
+
+/* Textarea styling */
+.app-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Required field indicator */
+.app-required-field {
+  color: var(--danger-btn-color);
+  margin-left: 2px;
+}
+
+/* Select dropdown styling with consistent arrow */
+.app-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+/* Password field container */
+.app-password-container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.app-password-container input {
+  flex: 1;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.app-password-toggle {
+  padding: 0 12px;
+  background-color: var(--cancel-btn-color);
+  border: 1px solid var(--input-border-color);
+  border-left: none;
+  border-top-right-radius: var(--input-border-radius);
+  border-bottom-right-radius: var(--input-border-radius);
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.app-password-toggle:hover {
+  background-color: var(--cancel-btn-hover);
+}
+
+/* Section divider for grouped fields */
+.app-section-divider {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--modal-border-color);
+}
+
+.app-section-divider h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #444;
+  font-weight: 600;
+}
+
+/* Modal footer */
+.app-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px var(--modal-padding);
+  background-color: var(--modal-footer-bg);
+  border-top: 1px solid var(--modal-border-color);
+  gap: 12px;
+}
+
+/* Button styles */
+.app-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--input-border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--modal-font-size);
+  min-width: 80px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.app-btn:active {
+  transform: translateY(1px);
+}
+
+.app-btn-primary {
+  background-color: var(--primary-btn-color);
+  color: white;
+}
+
+.app-btn-primary:hover {
+  background-color: var(--primary-btn-hover);
+}
+
+.app-btn-secondary {
+  background-color: var(--cancel-btn-color);
+  color: #333;
+}
+
+.app-btn-secondary:hover {
+  background-color: var(--cancel-btn-hover);
+}
+
+.app-btn-danger {
+  background-color: var(--danger-btn-color);
+  color: white;
+}
+
+.app-btn-danger:hover {
+  background-color: var(--danger-btn-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .app-modal {
+    max-width: 95%;
+    margin: 10px;
+  }
+  
+  .app-modal-footer {
+    flex-direction: column;
+  }
+  
+  .app-btn {
+    width: 100%;
+  }
+}

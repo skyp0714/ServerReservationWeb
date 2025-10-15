@@ -1,0 +1,386 @@
+/* DeviceList.vue Component Styles */
+@import '../dark-mode.css';
+
+.device-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.device-list h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Device tabs styles - specific to device list */
+.device-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.device-tabs .tab-button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  color: #555;
+}
+
+.device-tabs .tab-button:hover {
+  background-color: #e0e0e0;
+}
+
+.device-tabs .tab-button.active {
+  background-color: #4a77d4;
+  color: white;
+  border-color: #4a77d4;
+  font-weight: 500;
+}
+
+/* Updated filter styles with increased width */
+.device-filter-container {
+  max-width: 900px; /* Increased from default 600px in common-ui.css */
+}
+
+/* No results message with multiple actions */
+.no-results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* Server chip styling */
+.server-chip {
+  display: inline-block;
+  border-radius: 16px;
+  padding: 4px 12px;
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  border: 1px solid transparent;
+}
+
+.server-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* CPU type color classes */
+.server-chip.cpu-blue {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border-color: #bbdefb;
+}
+
+.server-chip.cpu-green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-color: #c8e6c9;
+}
+
+.server-chip.cpu-orange {
+  background-color: #fff3e0;
+  color: #e65100;
+  border-color: #ffe0b2;
+}
+
+.server-chip.cpu-purple {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border-color: #e1bee7;
+}
+
+.server-chip.cpu-default {
+  background-color: #f0f0f0;
+  color: #555;
+  border-color: #ddd;
+}
+
+/* Improve detail row alignment */
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.detail-row strong {
+  margin-right: 5px;
+}
+
+/* Device Details Modal Styles */
+.device-details-modal {
+  max-width: 700px;
+}
+
+.section-divider {
+  margin: 20px 0 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a77d4;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.info-display {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  min-height: 20px;
+  color: #333;
+}
+
+.note-text {
+  white-space: pre-wrap;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-green {
+  background-color: #4caf50;
+}
+
+.status-red {
+  background-color: #f44336;
+}
+
+/* Style for notes displayed as last field */
+.note-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.note-content {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 5px;
+  width: 100%;
+  white-space: pre-wrap;
+  color: #333;
+}
+
+/* Add styling for ownership toggle */
+.ownership-toggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Small toggle buttons style */
+.app-toggle-buttons-small {
+  display: flex;
+  gap: 5px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.app-toggle-buttons-small button {
+  background: none;
+  border: none;
+  border-radius: 17px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #555;
+}
+
+.app-toggle-buttons-small button:hover:not(.active) {
+  background-color: #e0e0e0;
+}
+
+.app-toggle-buttons-small button.active {
+  background-color: #4a77d4;
+  color: white;
+  font-weight: 500;
+}
+
+/* Update ownership toggle styling for new position */
+.ownership-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Add password toggle styling */
+.password-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+.password-hidden {
+  color: #999;
+  font-style: italic;
+}
+
+/* Header actions styling */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-edit-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quick-edit-btn:hover {
+  background-color: rgba(40, 167, 69, 0.15);
+  border-color: rgba(40, 167, 69, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Dark Mode Styles for DeviceList */
+body.dark-mode .device-list h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .filter-container {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .filter-input {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .filter-input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .type-filter-container {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .filter {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .type-filter-btn {
+  background-color: #3a3a3a;
+  color: #b0b0b0;
+  border-color: #444;
+}
+
+body.dark-mode .type-filter-btn:hover {
+  background-color: #404040;
+  border-color: #555;
+}
+
+body.dark-mode .type-filter-btn.active {
+  background-color: #1976d2;
+  color: white;
+  border-color: #1976d2;
+}
+
+body.dark-mode .device-chip {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .device-chip.device-type-blue {
+  background-color: #1565c0;
+  color: #e3f2fd;
+  border-color: #1976d2;
+}
+
+body.dark-mode .device-chip.device-type-green {
+  background-color: #2e7d32;
+  color: #e8f5e9;
+  border-color: #388e3c;
+}
+
+body.dark-mode .device-chip.device-type-orange {
+  background-color: #e65100;
+  color: #fff3e0;
+  border-color: #f57c00;
+}
+
+body.dark-mode .device-chip.device-type-purple {
+  background-color: #6a1b9a;
+  color: #f3e5f5;
+  border-color: #7b1fa2;
+}
+
+body.dark-mode .device-chip.device-type-red {
+  background-color: #c62828;
+  color: #ffebee;
+  border-color: #d32f2f;
+}
+
+body.dark-mode .attached-server-info {
+  color: #b0b0b0;
+}
+
+body.dark-mode .attached-server-link {
+  color: #64b5f6;
+}
+
+body.dark-mode .attached-server-link:hover {
+  color: #42a5f5;
+}
+
+body.dark-mode .quick-edit-btn {
+  background-color: #2d2d2d;
+  color: #66bb6a;
+  border-color: rgba(102, 187, 106, 0.3);
+}
+
+body.dark-mode .quick-edit-btn:hover {
+  background-color: rgba(102, 187, 106, 0.2);
+  border-color: rgba(102, 187, 106, 0.5);
+}
