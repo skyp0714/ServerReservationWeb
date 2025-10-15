@@ -2,6 +2,11 @@
 
 A comprehensive web application for managing server and device reservations with calendar integration, user authentication, and dark mode support.
 
+## 📚 Documentation
+
+- **[Security Policy](SECURITY.md)** - Security guidelines and best practices
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
+
 ## Features
 
 - **Server Management**: Add, edit, and track servers with detailed specifications
@@ -77,79 +82,64 @@ Create the following collections (they will be created automatically when you ad
 - `bugs` - Bug tracking
 - `userFavorites` - User favorite servers
 
-#### 3.5 Firestore Security Rules (Recommended)
+#### 3.5 Set Up Firestore Security Rules
 
-Go to **Firestore Database** → **Rules** and update with appropriate security rules:
+1. Go to [Firebase Console](https://console.firebase.google.com/) and select your project
+2. Click **Firestore Database** in the left menu
+3. Click the **Rules** tab at the top
+4. Delete all existing content and paste:
 
 ```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Helper function to check if user is authenticated
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    // Helper function to check user role
-    function getUserRole() {
-      return get(/databases/$(database)/documents/authorizedUsers/$(request.auth.uid)).data.userType;
-    }
-
-    function isAdmin() {
-      return isSignedIn() && getUserRole() == 'admin';
-    }
-
-    function isNormalUser() {
-      return isSignedIn() && (getUserRole() == 'normal' || getUserRole() == 'admin');
-    }
-
-    // Servers - read by all authenticated, write by normal users and admins
-    match /servers/{serverId} {
-      allow read: if isSignedIn();
-      allow write: if isNormalUser();
-    }
-
-    // Devices - read by all authenticated, write by normal users and admins
-    match /devices/{deviceId} {
-      allow read: if isSignedIn();
-      allow write: if isNormalUser();
-    }
-
-    // Reservations - read by all authenticated, write by normal users and admins
-    match /reservations/{reservationId} {
-      allow read: if isSignedIn();
-      allow write: if isNormalUser();
-    }
-
-    // Authorized users - read by authenticated, write by admins only
-    match /authorizedUsers/{userId} {
-      allow read: if isSignedIn();
-      allow write: if isAdmin();
-    }
-
-    // Announcements - read by all authenticated, write by normal users and admins
-    match /announcements/{announcementId} {
-      allow read: if isSignedIn();
-      allow create: if isNormalUser();
-      allow update, delete: if isAdmin() || resource.data.authorEmail == request.auth.token.email;
-    }
-
-    // Bugs - read by all authenticated, write by all authenticated
-    match /bugs/{bugId} {
-      allow read: if isSignedIn();
-      allow create: if isSignedIn();
-      allow update, delete: if isAdmin();
-    }
-
-    // User favorites - users can only read/write their own
-    match /userFavorites/{userId} {
-      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    // Allow read and write if the user is authenticated
+    match /{document=**} {
+      allow read, write: if request.auth != null;
     }
   }
 }
 ```
 
-#### 3.6 Get Firebase Configuration
+5. Click **Publish** button
+
+#### 3.6 Set Up Firestore Indexes
+
+⚠️ **Important**: Required for reservation queries to work.
+
+1. In **Firestore Database**, click the **Indexes** tab
+2. In the **Composite** section, click **Add Index** button
+3. Create these 3 indexes:
+
+**Index 1:**
+- Collection ID: `reservations`
+- Fields to index:
+  1. `start` - Ascending
+  2. `start` - Ascending
+  3. `__name__` - Ascending
+- Click **Create**
+
+**Index 2:**
+- Click **Add Index** again
+- Collection ID: `reservations`
+- Fields to index:
+  1. `server` - Ascending
+  2. `start` - Ascending
+  3. `__name__` - Ascending
+- Click **Create**
+
+**Index 3:**
+- Click **Add Index** again
+- Collection ID: `reservations`
+- Fields to index:
+  1. `username` - Ascending
+  2. `start` - Ascending
+  3. `__name__` - Descending
+- Click **Create**
+
+4. Wait 1-5 minutes for all indexes to show "Enabled" status
+
+#### 3.7 Get Firebase Configuration
 
 1. Go to **Project Settings** (gear icon) → **General**
 2. Scroll down to "Your apps" and click the **Web** icon (`</>`)
@@ -157,6 +147,8 @@ service cloud.firestore {
 4. Copy the Firebase configuration object
 
 ### 4. Environment Configuration
+
+> 🔒 **Security Note**: Never commit `.env` files to version control. See **[SECURITY.md](SECURITY.md)** for security best practices.
 
 #### 4.1 Create Local Environment File
 
@@ -336,6 +328,7 @@ Toggle dark mode using the button in the top-left corner of any page.
 ### Build fails with "Cannot read property of undefined"
 - Make sure all environment variables are set correctly
 - Check that Firebase configuration is valid
+- See **[SECURITY.md](SECURITY.md)** for credential management
 
 ### Authentication not working
 - Verify Google OAuth is enabled in Firebase Console
@@ -348,16 +341,27 @@ Toggle dark mode using the button in the top-left corner of any page.
 - Verify the workflow file has correct branch names
 
 ### Firestore permission errors
-- Update Firestore security rules
+- Update Firestore security rules (see Setup step 3.5)
 - Make sure your user exists in `authorizedUsers` collection with proper role
+
+### Query errors: "The query requires an index"
+- Make sure you created all 3 indexes in Setup step 3.6
+- Check Firebase Console → Firestore Database → Indexes tab
+- All 3 indexes must show "Enabled" status (not "Building...")
+- If you see "Building...", wait a few more minutes
 
 ## Contributing
 
+We welcome contributions! Please see **[CONTRIBUTING.md](CONTRIBUTING.md)** for detailed guidelines.
+
+**Quick Start**:
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+**Security**: If you discover a security vulnerability, please follow the reporting process outlined in **[SECURITY.md](SECURITY.md)**.
 
 ## License
 
