@@ -202,19 +202,52 @@ module.exports = defineConfig({
 
 **Important**: Replace `YOUR_REPOSITORY_NAME` with your actual GitHub repository name.
 
-### 6. Initial User Setup
+### 6. Initial Admin User Setup
 
-After deploying, you need to set up the first admin user:
+⚠️ **Important**: You need to configure the default admin email before deploying the application.
 
-1. Sign in to the application with Google
-2. Go to Firebase Console → **Firestore Database**
-3. Create a document in the `authorizedUsers` collection:
-   - Document ID: Your Firebase Auth UID (found in Authentication → Users)
+#### 6.1 Configure Default Admin Email in Code
+
+The application has a placeholder admin email (`admin@example.com`) that needs to be replaced with your actual email address.
+
+1. Open `src/views/AdminView.vue`
+2. Find and replace **all 4 occurrences** of `admin@example.com` with your actual admin email address:
+   - Line ~341: `if (this.currentUserEmail === 'admin@example.com')`
+   - Line ~377: `if (this.currentUserEmail === 'admin@example.com')`
+   - Line ~551: `if (member.email === 'admin@example.com')`
+   - Line ~635: `email: 'admin@example.com',`
+
+**Example**: If your admin email is `john.doe@gmail.com`, replace all instances:
+```javascript
+// Before
+if (this.currentUserEmail === 'admin@example.com') return true;
+
+// After
+if (this.currentUserEmail === 'john.doe@gmail.com') return true;
+```
+
+#### 6.2 Alternative: Manual Setup via Firestore
+
+If you prefer to set up the admin user after deployment:
+
+1. **Deploy the application first** (complete steps 7-10)
+2. Sign in to the application with your Google account
+3. Go to Firebase Console → **Firestore Database**
+4. Navigate to the `authorizedUsers` collection
+5. Find or create a document for your user:
+   - If a document with your email exists, edit it
+   - If not, click **Add document**
+   - Document ID: (Auto-generate)
    - Fields:
      ```
-     email: "your-email@gmail.com"
+     email: "your-admin-email@gmail.com"
+     name: "Your Name"
      userType: "admin"
+     addedDate: "2025-01-01T00:00:00.000Z"
      ```
+6. **Sign out and sign back in** for changes to take effect
+
+**Note**: The first method (6.1) is recommended as it ensures admin access from the first login.
 
 ### 7. Run Locally
 

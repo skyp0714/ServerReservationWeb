@@ -338,7 +338,7 @@ export default {
     },
     // Always calculate latest admin status
     currentUserIsAdmin() {
-      if (this.currentUserEmail === 'hnpark2@illinois.edu') return true;
+      if (this.currentUserEmail === 'admin@example.com') return true;
       return this.currentUser ? this.currentUser.userType === 'admin' : false;
     },
     isValidEmail() {
@@ -374,10 +374,10 @@ export default {
         'guest': 1
       };
 
-      if (this.currentUserEmail === 'hnpark2@illinois.edu') {
+      if (this.currentUserEmail === 'admin@example.com') {
         return roleLevels.admin; // Default admin has top level
       }
-      
+
       const currentUser = this.members.find(m => m.email === this.currentUserEmail);
       return currentUser && currentUser.userType ? roleLevels[currentUser.userType] || roleLevels.normal : roleLevels.normal;
     },
@@ -546,22 +546,22 @@ export default {
           console.error('Cannot update member: missing ID');
           return;
         }
-        
+
         // Don't allow changing default admin
-        if (member.email === 'hnpark2@illinois.edu') {
+        if (member.email === 'admin@example.com') {
           alert('Cannot change the type for the default admin user.');
           return;
         }
-        
+
         const userRef = doc(firestore, 'authorizedUsers', member.id);
         await updateDoc(userRef, {
           userType: member.userType,
           updatedBy: this.currentUserEmail,
           updatedDate: new Date().toISOString()
         });
-        
+
         console.log(`User type updated for ${member.email} to ${member.userType}`);
-        
+
         // Refresh cache to show changes immediately
         await this.refreshMemberCache();
       } catch (error) {
@@ -627,13 +627,13 @@ export default {
       // Check if we have any users already
       const usersRef = collection(firestore, 'authorizedUsers');
       const querySnapshot = await getDocs(usersRef);
-      
+
       // If not, add the default admin user
       if (querySnapshot.empty) {
         try {
           await addDoc(usersRef, {
-            email: 'hnpark2@illinois.edu',
-            name: 'Haneul Park',
+            email: 'admin@example.com',
+            name: 'Admin User',
             userType: 'admin',
             addedDate: new Date().toISOString()
           });
