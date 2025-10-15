@@ -404,9 +404,3 @@ This project is open source and available under the [MIT License](LICENSE).
 
 For issues, questions, or contributions, please open an issue on GitHub.
 
-## Acknowledgments
-
-- Vue.js team for the amazing framework
-- Firebase for backend services
-- FullCalendar for the calendar component
-- All contributors to this project
